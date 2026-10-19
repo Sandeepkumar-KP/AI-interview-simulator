@@ -1,5 +1,5 @@
 // src/app.js — Core application logic & state management
-import { buildSystemPrompt, buildOpeningMessage } from "./prompts.js";
+import { buildSystemPrompt, buildOpeningMessage } from "./prompt.js";
 import { sendMessage, validateApiKey, APIError } from "./api.js";
 import { parseFeedback, toGrade, buildSessionStats } from "./scoring.js";
 
@@ -37,7 +37,9 @@ export function initApp() {
   $("#user-input").addEventListener("keydown", handleKeydown);
   $("#feedback-btn").addEventListener("click", handleRequestFeedback);
   $("#restart-btn").addEventListener("click", handleRestart);
-  $("#new-session-btn").addEventListener("click", handleRestart);
+  // index.html has no #new-session-btn (the results card wires its own button); a missing
+  // element here used to throw and leave the rest of initApp() unrun.
+  $("#new-session-btn")?.addEventListener("click", handleRestart);
   $("#history-btn").addEventListener("click", toggleHistory);
   $("#close-history-btn").addEventListener("click", toggleHistory);
 
