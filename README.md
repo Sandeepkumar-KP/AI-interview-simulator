@@ -24,7 +24,7 @@ git clone https://github.com/yourusername/ai-interview-simulator.git
 cd ai-interview-simulator
 ```
 
-Then open `index.html` in your browser. Enter your Anthropic API key when prompted.
+Then serve the folder over HTTP (Option 2). Browsers block ES modules on `file://`, so double-clicking `index.html` does not work. Enter your Anthropic API key when prompted.
 
 ### Option 2: Serve Locally
 
